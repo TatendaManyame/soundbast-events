@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
+
 import {
   FaBuilding,
   FaUsers,
@@ -12,7 +14,7 @@ export default function Auditorium() {
   return (
     <section
       id="auditorium"
-      className="relative overflow-hidden bg-[#0b0b0b] py-28 px-6"
+      className="relative overflow-hidden bg-[#0b0b0b] px-6 py-28"
     >
       {/* BACKGROUND EFFECTS */}
       <div className="absolute left-0 top-0 h-[500px] w-[500px] bg-[#6c2bd9]/20 blur-[150px]" />
@@ -22,7 +24,6 @@ export default function Auditorium() {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
-        
         {/* TOP HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 70 }}
@@ -39,7 +40,7 @@ export default function Auditorium() {
             </p>
           </div>
 
-          <h2 className="text-5xl font-black leading-tight md:text-7xl">
+          <h2 className="text-5xl font-black leading-tight text-white md:text-7xl">
             Designed For
             <span className="gradient-text block">
               Modern Events
@@ -56,28 +57,25 @@ export default function Auditorium() {
 
         {/* MAIN GRID */}
         <div className="grid gap-14 lg:grid-cols-2">
-          
           {/* AUDITORIUM CARD */}
           <motion.div
             initial={{ opacity: 0, y: 70 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
-            whileHover={{
-              y: -8,
-            }}
+            whileHover={{ y: -8 }}
             className="group relative overflow-hidden rounded-[40px] border border-white/10 bg-white/[0.04] backdrop-blur-2xl"
           >
             {/* IMAGE */}
             <div className="relative h-[520px] overflow-hidden">
-            <img
-  src="/auditorium/auditorium.jpeg"
-  alt="SoundBast Auditorium"
-  layout="fill"
-  objectFit="cover"
-  className="rounded-[40px]"
-/>
-
+              <Image
+                src="/auditorium/auditorium.jpeg"
+                alt="SoundBast Auditorium"
+                fill
+                quality={75}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition duration-[2500ms] group-hover:scale-110"
+              />
 
               {/* OVERLAY */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
@@ -155,20 +153,17 @@ export default function Auditorium() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1 }}
             viewport={{ once: true }}
-            whileHover={{
-              y: -8,
-            }}
+            whileHover={{ y: -8 }}
             className="group relative overflow-hidden rounded-[40px] border border-white/10 bg-white/[0.04] backdrop-blur-2xl"
           >
-            {/* IMAGE / VIDEO AREA */}
+            {/* VIDEO AREA */}
             <div className="relative h-[520px] overflow-hidden">
-              
-              {/* VIDEO */}
               <video
                 autoPlay
                 muted
                 loop
                 playsInline
+                preload="none"
                 className="h-full w-full object-cover transition duration-[2500ms] group-hover:scale-110"
               >
                 <source
@@ -248,7 +243,7 @@ export default function Auditorium() {
           </motion.div>
         </div>
 
-        {/* BOTTOM FLOATING INFO */}
+        {/* BOTTOM CTA */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -259,7 +254,6 @@ export default function Auditorium() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ffc300]/10 to-[#6c2bd9]/10" />
 
           <div className="relative z-10 flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-center">
-            
             <div>
               <p className="mb-4 text-sm uppercase tracking-[5px] text-[#ffc300]">
                 Venue Hire & Event Space

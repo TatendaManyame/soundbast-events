@@ -100,7 +100,9 @@ export default function About() {
               alt="SoundBast Auditorium"
               fill
               priority
-              className="object-cover rounded-[40px]"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={75}
+              className="rounded-[40px] object-cover"
             />
 
             {/* OVERLAY */}
